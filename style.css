@@ -5,17 +5,18 @@ body {
   padding: 20px;
   display: flex;
   justify-content: center;
+  background-image: url(quzzbackground.jpg);
 }
 
 .quiz-box {
   margin-top: 20px;
-  background: #3f3f3f8b;
+  background: #42424249;
   backdrop-filter: blur(20px);
   padding: 25px;
   border-radius: 8px;
   max-width: 70%;
   width: 100%;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(30, 30, 30, 0);
   text-align: center;
   height: 650px;
 }
