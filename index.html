@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="dashboard" class="quiz-box">
+    <div class="ctn">
+      <div>    <h1>Select a Quiz Category</h1></div>
+      <div>
+    <p>Choose your preferred programming language:</p></div>
+    <div>
+      <input type="text" id="api" placeholder="Enter you api key " style="font-weight: bolder; font-size: large;">
+    </div>
+    <div>
+    
+    <select id="category-select" class="dropdown">
+      <option value="">-- Select --</option>
+      <option value="Linux">Linux</option>
+      <option value="JavaScript">JavaScript</option>
+      <option value="PHP">PHP</option>
+      <option value="DevOps">DevOps</option>
+      <option value="Docker">Docker</option>
+      <option value="Kubernetes">Kubernetes</option>
+      <option value="SQL">SQL</option>
+      <option value="Bash">Bash</option>
+      <option value="Cloud">Cloud</option>
+    </select>
+    
+    
+    </div>
+    <div>
+      <button id="start-btn" class="btn">Start Quiz</button>
+    </div>
+    </div>
+  </div>
+
+  
+  <div id="quiz-area" class="quiz-box" style="display:none;">
+    <h1 id="quiz-title"></h1>
+    <div id="quiz-container">Loading…</div>
+    <button id="next-btn" class="btn">Next</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
