@@ -14,41 +14,18 @@ let userAnswers = [];
 
 startBtn.addEventListener('click', () => {
   const category = categorySelect.value;
-  const api=document.getElementById("api").value;
+  const api = document.getElementById("api").value;
+  const name = document.getElementById("name").value;
   if (!category) {
     alert('Please select a category.');
     return;
   }
-  startQuiz(category,api);
+  if (!name) {
+    alert('Please enter your name.');
+    return;
+  }
+  window.location.href = `game.html?name=${encodeURIComponent(name)}&category=${encodeURIComponent(category)}&apiKey=${encodeURIComponent(api)}`;
 });
-
-function startQuiz(category,api) {
-  dashboard.style.display = 'none';
-  quizArea.style.display  = 'block';
-  quizTitle.textContent   = `${category} Quiz`;
-
-  fetch(`https://quizapi.io/api/v1/questions?category=${encodeURIComponent(category)}&limit=5`, {
-    headers: { 'X-Api-Key':api} // <-- put your real key W2d3NfF7kz9kZTT2ZCndnf9sVyJQl1TvAt6UubPs
-  })
-    .then(res => res.json())
-    .then(data => {
-      questions = data;
-      current = 0;
-      score = 0;
-      userAnswers = [];
-      if (!questions.length) {
-        quizContainer.innerHTML = '<p>No questions found for this category.</p>';
-        nextBtn.style.display = 'none';
-      } else {
-        nextBtn.style.display = 'inline-block';
-        showQuestion();
-      }
-    })
-    .catch(err => {
-      console.error(err);
-      quizContainer.textContent = 'Failed to load quiz.';
-    });
-}
 
 function showQuestion() {
   const q = questions[current];
